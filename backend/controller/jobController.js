@@ -63,7 +63,8 @@ exports.getAllCreatedJobsOfUser = catchAsyncErrors(async (req, res, next)=>{
 exports.getSingleJobDetails = catchAsyncErrors(async (req, res, next)=>{
    let job = await Job.findById(req.params.id);
    
-   if((!job) || (!new ObjectId(job.createdBy).equals(new ObjectId(req.user.id))) ) 
+   // if((!job) || (!new ObjectId(job.createdBy).equals(new ObjectId(req.user.id))) ) 
+   if((!job)) 
       {return next(new RegularErrorHandler("job not found",404));}
 
    res.status(200).json({

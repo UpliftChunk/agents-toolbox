@@ -47,7 +47,7 @@ exports.getCreatedAgentsOfUser = catchAsyncErrors(async (req, res, next)=>{
 // ..get single agent details
 exports.getSingleAgentDetails = catchAsyncErrors(async (req, res, next)=>{
    
-   let agent = await Agent.findById(req.params.id);
+   let agent = await Agent.findById(req.params.id).select("accessToken");
    if(!agent) 
       {return next(new RegularErrorHandler("agent not found",404));}
 
