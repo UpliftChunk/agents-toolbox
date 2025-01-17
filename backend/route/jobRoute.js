@@ -8,10 +8,10 @@ const { getAllJobs, getSingleJobDetails, getAllCreatedJobsOfUser, createJob } = 
 const { isAuthenticatedUser } = require('../middleware/isAuth');
 
 // everyone
-// router.route('/jobs').get(getAllJobs);
+router.route('/jobs').get(getAllJobs);
 
 // user
-router.route('/job/:id').get(isAuthenticatedUser, getSingleJobDetails);
+router.route('/job/:id').get(getSingleJobDetails);
 router.route('/my-jobs').get(isAuthenticatedUser, getAllCreatedJobsOfUser);
 router.route('/create-job').post(isAuthenticatedUser, createJob);
 
