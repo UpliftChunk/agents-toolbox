@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { setAuth } from "../../../features/AuthSlice";
 import { useNavigate } from "react-router-dom";
 
+
 const Register = () => {
   const {
     register,
@@ -39,6 +40,7 @@ const Register = () => {
         headers: {
           "Content-Type": "multipart/form-data",
         },
+        withCredentials: true,
       });
       console.log("Registration Successful:", response.data);
 
